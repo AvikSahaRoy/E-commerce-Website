@@ -1,0 +1,150 @@
+1. User Registration Table -------->>>>>>
+
+create table userregistration (
+	fname varchar2(10),
+	lname varchar2(10),
+	email varchar2(30) primary key,
+	phno varchar2(10) UNIQUE,
+	dob varchar2(10),
+	gender varchar2(10),
+	password varchar2(20)
+);
+
+select * from userregistration ;
+
+drop table userregistration;
+
+
+2. Contact us Table -------------->>>>>>>>
+
+create table contactus (
+	id number primary key,
+	fname varchar2(10),
+	lname varchar2(10),
+	email varchar2(30),
+	phno varchar2(10),
+	msg varchar2(500)
+);
+
+create sequence id_seq;
+
+create trigger trg_id
+      before insert on contactus
+      for each row
+    begin
+      select id_seq.nextval
+        into :new.id
+        from dual;
+    end;
+    /
+
+drop table contactus;
+
+select * from contactus;
+
+
+3. Product Table -------------------->>>>>>>
+
+CREATE TABLE products (
+  id number primary key,
+  name varchar2(100),
+  category varchar2(450),
+  price varchar2(5),
+  image BLOB
+);
+
+create sequence id_p;
+
+create trigger trgge_id
+      before insert on products 
+      for each row
+    begin
+      select id_p.nextval
+        into :new.id
+        from dual;
+    end;
+    /
+
+select * from products;
+
+drop table products;
+
+
+4. Cart Table -------------------->>>>>>>
+
+select * from cart;
+
+desc cart;
+
+create table cart (
+  EMAIL VARCHAR2(30),
+  PRODUCTID NUMBER(10),
+  QUANTITY NUMBER(10)
+);
+
+
+5. Order Table -------------------->>>>>>>
+
+create table orders (
+
+orderId number primary key,
+email varchar2(30), 
+productId number(10), 
+quantity number(10), 
+price number(10),
+discount number(10),
+totalprice number(10),
+fname varchar2(10), 
+lname varchar2(10),
+phno varchar2(10),
+address varchar2(100), 
+country varchar2(30), 
+state varchar2(30),
+pincode number(6), 
+payment varchar2(10), 
+orderdate DATE DEFAULT SYSDATE, 
+deliverydate DATE DEFAULT SYSDATE+5
+
+);
+
+create sequence orderId_orders;
+
+
+CREATE TRIGGER TRGGEE_ORDERID 
+  BEFORE INSERT ON orders 
+  FOR EACH ROW
+BEGIN
+  SELECT orderId_orders.NEXTVAL INTO :NEW.orderId FROM dual;
+END;
+/
+
+select * from orders;
+
+DROP TRIGGER TRGGE_ORDERID;
+
+drop table orders;
+
+
+*** Id Auto Increment Using Triger ---------------->>>>
+
+create table staff (
+      emp_id number primary key,
+      staff_name varchar2(100)
+    );
+
+create sequence emp_id_seq;
+
+create trigger trg_emp_id
+      before insert on staff
+      for each row
+    begin
+      select emp_id_seq.nextval
+        into :new.emp_id
+        from dual;
+    end;
+    /
+
+insert into staff( staff_name ) values ('avik');
+
+select * from staff;
+
