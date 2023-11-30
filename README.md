@@ -21,5 +21,5 @@ and view order history.  </p>
 
 
 <h4> GUI Design available "Website Screenshot" Folder <h4>
-<h4> MySQL Query available "Database Query.txt" Folder</h4>
+<h4> MySQL Query available "Database Query.txt" File</h4>
 
