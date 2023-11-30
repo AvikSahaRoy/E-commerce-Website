@@ -19,4 +19,5 @@ and view order history.  </p>
   <li> Oracle Database 11g Express Edition  </li>
 </ul>
 
-<h4> GUI Design available "Website Screenshot Folder" <h4>
+<h4> GUI Design available "Website Screenshot" Folder <h4>
+<h4> MySQL Query available "Database Query.txt" Folder</h4>
